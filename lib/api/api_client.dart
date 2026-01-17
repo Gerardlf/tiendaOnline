@@ -23,7 +23,7 @@ class ApiClient {
       uri = Uri.parse('$baseUrl/products');
     }
 
-    final respuesta = await http.get(uri);
+    final respuesta = await http.get(uri).timeout(const Duration(seconds: 10));
 
     if (respuesta.statusCode != 200) {
       throw Exception(
