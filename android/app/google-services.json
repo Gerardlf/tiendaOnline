@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "943897185361",
+    "project_id": "tiendaonline-edc84",
+    "storage_bucket": "tiendaonline-edc84.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943897185361:android:09aa41aa148f401b017c70",
+        "android_client_info": {
+          "package_name": "com.example.app_navegacion_estado"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsEuV-VWRdagxRTxVKK0IY7RAuXGsTSu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

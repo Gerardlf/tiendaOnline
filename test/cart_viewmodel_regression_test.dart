@@ -1,3 +1,4 @@
+import 'package:app_navegacion_estado/data/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:app_navegacion_estado/state/cartViewModel.dart';
@@ -12,12 +13,15 @@ void main() {
     expect(cartViewModel.count, 0);
 
     //Creamos un producto de prueba
-    final productoFantasma = Producto(
-      "333",
-      "Producto Fantasma",
-      50.0,
-      "Descripción del producto fantasma",
-      Icons.help,
+    final productoFantasma = Product(
+      id: 333,
+      title: "Producto Fantasma",
+      price: 50.0,
+      description: "Descripción del producto fantasma",
+      category: "test",
+      imageUrl: "https://via.placeholder.com/150",
+      rating: 0.0,
+      ratingCount: 0,
     );
     //Intentamos eliminar el producto fantasma (que no está en el carrito)
 

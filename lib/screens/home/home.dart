@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   final producto = viewModel.products[i];
 
                   return InkWell(
-                    onTap: () {},
+                    onTap: () => {context.goNamed("detail", extra: producto)},
                     child: ProductCardApi(
                       id: producto.id,
                       title: producto.title,
@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       imageUrl: producto.imageUrl,
 
                       onAdd: () {
-                        //cart.addProduct(producto);
+                        cart.addProduct(producto);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
