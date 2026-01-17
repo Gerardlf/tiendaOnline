@@ -1,17 +1,17 @@
-import 'package:app_navegacion_estado/data/producto.dart';
+import 'product.dart';
 
 class CartRepository {
-  final List<Producto> _items = [];
+  final List<Product> _items = [];
 
-  List<Producto> get items => List.unmodifiable(_items);
+  List<Product> get items => List.unmodifiable(_items);
   int get count => _items.length;
-  double get total => _items.fold(0, (sum, p) => sum + p.precio);
+  double get total => _items.fold(0, (sum, p) => sum + p.price);
 
-  void add(Producto p) {
+  void add(Product p) {
     _items.add(p);
   }
 
-  void remove(Producto p) {
+  void remove(Product p) {
     _items.remove(p);
   }
 

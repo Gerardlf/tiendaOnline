@@ -1,3 +1,4 @@
+import 'package:app_navegacion_estado/data/product.dart';
 import 'package:app_navegacion_estado/data/producto.dart';
 import 'package:app_navegacion_estado/state/cartViewModel.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class DetailProduct extends StatelessWidget {
-  final Producto producto;
+  final Product producto;
   const DetailProduct({super.key, required this.producto});
 
   @override
@@ -35,14 +36,14 @@ class DetailProduct extends StatelessWidget {
                 SizedBox(height: 12),
                 Text(" ${producto.id}", style: TextStyle(fontSize: 12)),
                 SizedBox(height: 12),
-                Icon(producto.iconData, size: 100, color: Colors.indigo),
+                Image.network(producto.imageUrl),
                 Text(
-                  " ${producto.nombre}",
+                  " ${producto.title}",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 12),
                 Text(
-                  " ${producto.precio} €",
+                  " ${producto.price} €",
                   style: TextStyle(
                     fontSize: 22,
                     color: Colors.indigo,
@@ -56,7 +57,7 @@ class DetailProduct extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  producto.descripcion,
+                  producto.description,
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
