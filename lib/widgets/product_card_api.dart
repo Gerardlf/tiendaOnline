@@ -8,7 +8,6 @@ class ProductCardApi extends StatelessWidget {
   final String imageUrl;
 
   final VoidCallback onAdd;
-  final VoidCallback? onTap;
 
   const ProductCardApi({
     super.key,
@@ -18,7 +17,6 @@ class ProductCardApi extends StatelessWidget {
     required this.category,
     required this.imageUrl,
     required this.onAdd,
-    this.onTap,
   });
 
   @override
@@ -27,7 +25,6 @@ class ProductCardApi extends StatelessWidget {
       shadowColor: Colors.blueAccent,
       elevation: 12,
       child: ListTile(
-        onTap: onTap,
         leading: Image.network(
           imageUrl,
           width: 53,

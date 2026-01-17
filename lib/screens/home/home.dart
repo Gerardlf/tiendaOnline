@@ -1,6 +1,7 @@
 import 'package:app_navegacion_estado/data/fake_products.dart';
 import 'package:app_navegacion_estado/state/cartViewModel.dart';
 import 'package:app_navegacion_estado/state/product_list_view_model.dart';
+import 'package:app_navegacion_estado/widgets/product_card_api.dart';
 import 'package:app_navegacion_estado/widgets/responsive_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -92,32 +93,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, i) {
                   final producto = viewModel.products[i];
 
-                  return ListTile(
-                    title: Text(producto.title),
-                    subtitle: Text(producto.category),
-                    trailing: Text("${producto.price.toStringAsFixed(2)} €"),
-                  );
-                  /*
-                  InkWell(
-                    onTap: () => context.goNamed("detail", extra: producto),
-                    child: ProductCard(
+                  return InkWell(
+                    onTap: () {},
+                    child: ProductCardApi(
                       id: producto.id,
-                      icon: producto.iconData,
-                      name: producto.nombre,
-                      precio: producto.precio,
+                      title: producto.title,
+                      price: producto.price,
+                      category: producto.category,
+                      imageUrl: producto.imageUrl,
+
                       onAdd: () {
-                        cart.addProduct(producto);
+                        //cart.addProduct(producto);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                              "${producto.nombre} añadido al carrito",
+                              "${producto.title} añadido al carrito",
                             ),
                             duration: Duration(seconds: 2),
                           ),
                         );
                       },
                     ),
-                  );*/
+                  );
                 },
               ),
       ),
