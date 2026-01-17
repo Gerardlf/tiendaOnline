@@ -1,5 +1,4 @@
 import 'package:app_navegacion_estado/data/product.dart';
-import 'package:app_navegacion_estado/data/producto.dart';
 import 'package:app_navegacion_estado/state/cartViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

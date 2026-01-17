@@ -1,4 +1,3 @@
-import 'package:app_navegacion_estado/data/fake_products.dart';
 import 'package:app_navegacion_estado/state/cartViewModel.dart';
 import 'package:app_navegacion_estado/state/product_list_view_model.dart';
 import 'package:app_navegacion_estado/widgets/product_card_api.dart';
@@ -6,7 +5,6 @@ import 'package:app_navegacion_estado/widgets/responsive_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_components/product_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -75,15 +75,18 @@ class CartScreen extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Icon(
-                                    producto.iconData,
-                                    size: 20,
-                                    color: Colors.indigo,
+                                  Image.network(
+                                    producto.imageUrl,
+                                    height: 50,
+                                    width: 50,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (_, _, _) =>
+                                        Icon(Icons.image_not_supported),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      producto.nombre,
+                                      producto.title,
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 16,
@@ -94,7 +97,7 @@ class CartScreen extends StatelessWidget {
                                 ],
                               ),
                               Text(
-                                " ${producto.precio.toStringAsFixed(2)} €",
+                                " ${producto.price.toStringAsFixed(2)} €",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -114,7 +117,7 @@ class CartScreen extends StatelessWidget {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
-                                    "${producto.nombre} eliminado del carrito",
+                                    "${producto.title} eliminado del carrito",
                                   ),
                                   duration: Duration(seconds: 2),
                                 ),
