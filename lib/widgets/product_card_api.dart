@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class ProductCardApi extends StatelessWidget {
@@ -55,6 +53,7 @@ class ProductCardApi extends StatelessWidget {
           style: TextStyle(color: Colors.blueGrey[700], fontSize: 14),
         ),
         trailing: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
               tooltip: "Favorito",
