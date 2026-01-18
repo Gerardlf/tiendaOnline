@@ -1,3 +1,6 @@
+# APP TIENDA ONLINE UD6 Y UD7
+
+# UD6 (BASE)
 # app_navegacion_estado
 
 ## Arquitectura
@@ -24,11 +27,11 @@ Se ha creado dentro de la carpeta widgets, un widget personalizado llamado respo
 Usamos el paquete ui_components donde tenemos nuestro archivo ProductCard que es un widget personalizado y reutilizable que nos ayuda a crear una tarjeta con los detalles del producto que necesitamos mostrar (Actualmente la usamos para "pintar" la lista de productos disponibles).
 
 ## Capturas de la app 
-![Home>800px](docs\capturas\HomePantalla+800.png)
-![Cart>800px](docs\capturas\CartPantalla+800.png)
-![Home<800px](docs\capturas\HomeMovil.png)
-![Detail<800px](docs\capturas\DetailMovil.png)
-![Cart<800px](docs\capturas\CartMovil.png)
+![Home>800px](docs/capturas/HomePantalla+800.png)
+![Cart>800px](docs/capturas/CartPantalla+800.png)
+![Home<800px](docs/capturas/HomeMovil.png)
+![Detail<800px](docs/capturas/DetailMovil.png)
+![Cart<800px](docs/capturas/CartMovil.png)
 
 
 
@@ -38,7 +41,7 @@ Esta App se ampliará en la UD7
 
 ## 18/enero/2026
 
-## inicio unidad 7
+## inicio unidad 7 (AMPLIACIÓN)
 Debido a que la unidad 6 no estaba calificada al empezar la unidad 7 y que no queria tocar nada de ese código debido a que estaba subido como un repositorio público, he decidico compiar toda la unidad 6 y comenzar desde alli en un repo nuevo.
 
 ## Tienda Online (UD7) · API REST + Firebase (continuación de la unidad 6)
@@ -101,12 +104,95 @@ Cada usuario tiene su propia coleccion de favoritos en:
 
 Este repositorio es público, por lo que **no se incluyen archivos de configuración de Firebase**.
 
-Para ejecutar el proyecto con Firebase debes generarlos localmente:
+## Informe (Tabla + Gráfico) 
+Se ha añadido una pantalla de informe ReportScreen que muestra un análisis simple basado en los productos de la API
 
-1) Activar FlutterFire CLI:
-```bash
-dart pub global activate flutterfire_cli
-flutterfire configure
+- **Tabla (DataTable)** cin titulo, categoria y precio.
+- **Filtro por categoria** usando un DropdownButton
+- **Cálculo** total de productos filtrados
+- **Gráfico de barras con fl_chart** con el resultado de productos por categoria
+ 
+ ## Dependencias añadidas en la UD7
+
+ - http -> consumo de API REST
+ - firebase_core -> inicialización de Firebase
+ - Firebase_auth -> login anónimo
+ - cloud_firestore -> favoritos persistentes
+ - fl_chart -> gráfico del informe
+
+ 
+ ## Capturas UD7
+
+ ![AUTH>800px](docs/capturas/PantallaAuth.png)
+ ![API>800PX](docs/capturas/Productos%20desde%20API.png)
+ ![INFORME>800PX](docs/capturas/Tabla%20y%20Grafico.png)
+ ![FAV>800PX](docs/capturas/Favoritos.png)
+
+
+## Pasos de inatalación y ejecución
+
+1) Requisitos
+· Tener Flutter instalado
+· Tener un emulador Android y/o Chrome disponible
+
+2) Instalar dependencias
+ - En la carpeta del proyecto con flutter pub get
+
+3) Ejecutar la App
+- flutter run
+
+## Configuración API REST (FakeStoreAPI)
+
+La app usa esta API:
+  - https://fakestoreapi.com/products
+
+si quieres cambiar la api lo debes hacer en:
+- lib/api/api_client.dart
+- Variable baseUrl
+
+## Configuración Firebase (Auth + Firestore)
+
+Para que funcione login anónimo y favpritos, Firebase debe estar configurado.
+
+Firebase genera el archivo:
+- lib/firebase_options.dart
+y se inicializa en main.dart
+- Firebase.initializaApp( options: DefaultFirebaseOptions.currentPlatform,);
+
+**Importante sobre repositorios públicos**
+
+Este repositorio es público, asi que NO se suben archivos sensibles como:
+
+- lib/firebase_options.dart
+- android/app/google-services.json
+Cada persona debe generarlos en su ordenador con FlutterFire CLI:
+
+1) Instalar FlutterFire CLI desde cualquier terminal
+
+- dart pub global activate flutterfire_cli
+
+2) Configurar Firebase dentro del proyecto
+En la raiz del proyecto (donde esta el pubspec.yaml) ejecutar: 
+ - flutterfire configure
+
+ Esto permitirá selecionar:
+ - El proyecto Firebase
+ - Las plataformas (Android, Web, Windows, Mac e IOS)
+
+ Al terminar, FlutterFire generará automaticamente:
+
+ - lib/firebase_options.dart
+ - andriod/app/google-services.json 
+
+
+
+
+
+
+
+
+
+
 
 
 
