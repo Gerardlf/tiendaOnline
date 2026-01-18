@@ -1,3 +1,4 @@
+import 'package:app_navegacion_estado/services/firebase_service.dart';
 import 'package:app_navegacion_estado/state/cartViewModel.dart';
 import 'package:app_navegacion_estado/state/product_list_view_model.dart';
 import 'package:app_navegacion_estado/widgets/product_card_api.dart';
@@ -28,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final cart = context.watch<CartViewModel>();
     final viewModel = context.watch<ProductListViewModel>();
+    final firebase = FirebaseService();
 
     return ResponsiveScaffold(
       currentIndex: 0,
@@ -106,6 +108,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           SnackBar(
                             content: Text(
                               "${producto.title} añadido al carrito",
+                            ),
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
+                      },
+                      onFavorite: () async {
+                        await firebase.addFavorite(producto);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "${producto.title} añadido a favoritos",
                             ),
                             duration: Duration(seconds: 2),
                           ),

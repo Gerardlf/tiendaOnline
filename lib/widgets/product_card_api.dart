@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class ProductCardApi extends StatelessWidget {
@@ -8,6 +10,7 @@ class ProductCardApi extends StatelessWidget {
   final String imageUrl;
 
   final VoidCallback onAdd;
+  final VoidCallback? onFavorite;
 
   const ProductCardApi({
     super.key,
@@ -17,6 +20,7 @@ class ProductCardApi extends StatelessWidget {
     required this.category,
     required this.imageUrl,
     required this.onAdd,
+    this.onFavorite,
   });
 
   @override
@@ -50,10 +54,24 @@ class ProductCardApi extends StatelessWidget {
           "$category\n${price.toStringAsFixed(2)} €",
           style: TextStyle(color: Colors.blueGrey[700], fontSize: 14),
         ),
-        trailing: ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.blueAccent),
-          onPressed: onAdd,
-          child: const Text("Añadir", style: TextStyle(color: Colors.white)),
+        trailing: Row(
+          children: [
+            IconButton(
+              tooltip: "Favorito",
+              onPressed: onFavorite,
+              icon: Icon(Icons.star_border, color: Colors.amberAccent),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueAccent,
+              ),
+              onPressed: onAdd,
+              child: const Text(
+                "Añadir",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
