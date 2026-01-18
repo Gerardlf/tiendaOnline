@@ -35,3 +35,78 @@ Usamos el paquete ui_components donde tenemos nuestro archivo ProductCard que es
 ## Nota
 
 Esta App se ampliará en la UD7
+
+## 18/enero/2026
+
+## inicio unidad 7
+Debido a que la unidad 6 no estaba calificada al empezar la unidad 7 y que no queria tocar nada de ese código debido a que estaba subido como un repositorio público, he decidico compiar toda la unidad 6 y comenzar desde alli en un repo nuevo.
+
+## Tienda Online (UD7) · API REST + Firebase (continuación de la unidad 6)
+
+- Consumo de una **API REST pública** (FakeStoreAPI)
+- **Firebase Auth** (Login anónimo)
+- **FireStore** para poder guardar los favoritos del usuario, mostrarlos y usarlos en los informes
+
+
+## Arquitectura (MVVM)
+ 
+ - **data/** → Modelos y repositorios  
+  Contiene Product (modelo de producto) y CartRepository (lógica del carrito). Se creó un nuevo producto llamado producto para que se adaptara a los datos de la API.
+
+- **state/** → ViewModels / Providers  
+  Contiene CartViewModel (estado del carrito) y ProductListViewModel (estado de lista de productos desde API REST).
+
+- **screens/** → Pantallas (UI)  
+  Contiene las pantallas principales: AuthScreen, HomeScreen, DetailScreen , CartScreen, FavoritesScreen, etc.  
+  Las vistas escuchan a los ViewModels mediante Provider.
+
+- **api/** → Cliente REST  
+  Contiene ApiClient, encargado de realizar la petición HTTP a la API y devolver una lista de productos.
+
+- **services/** → Servicios externos  
+  Contiene FirebaseService, encargado de autenticación y operaciones con Firestore.
+
+  ## API REST (FakeStoreAPI)
+
+  La app obtiene los productos desde la API pública:
+  https://fakestoreapi.com/products
+
+  -Usamos http
+  - Los datos don Json que se transforman a objetos Product mediante Product,fromJson
+  - Gestionan estados en la UI:
+    - Cargando
+    - Errores
+    - Sin resultados
+    - La lista de productos correcta con ListView.builder
+
+## Firebase (Auth + Firestore)
+
+## Autenticación
+La app usa login anónimo creamdo un usuario temporal único por dispositivo
+
+## Firestore (para los favoritos)
+Cada usuario tiene su propia coleccion de favoritos en: 
+ users/<uid>/favorites
+
+ Se guardan datos del producto:
+ - title
+ - price
+ - category
+ - imageUrl
+ - createdAt
+ 
+ Los favoritos se muestran en una pantalla con StreamBuilder
+
+ ## Configuración Firebase (IMPORTANTE)
+
+Este repositorio es público, por lo que **no se incluyen archivos de configuración de Firebase**.
+
+Para ejecutar el proyecto con Firebase debes generarlos localmente:
+
+1) Activar FlutterFire CLI:
+```bash
+dart pub global activate flutterfire_cli
+flutterfire configure
+
+
+

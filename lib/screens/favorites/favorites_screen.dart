@@ -1,6 +1,7 @@
 import 'package:app_navegacion_estado/services/firebase_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});
@@ -14,6 +15,10 @@ class FavoritesScreen extends StatelessWidget {
         title: const Text(
           "Mis Favoritos",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => context.goNamed('home'),
         ),
         backgroundColor: Colors.indigoAccent,
       ),
@@ -63,7 +68,7 @@ class FavoritesScreen extends StatelessWidget {
                       )
                     : const Icon(Icons.image_not_supported),
                 title: Text(title),
-                subtitle: Text("${(price ?? 0).toString()} €  · $category"),
+                subtitle: Text("${(price).toString()} €  · $category"),
               );
             },
           );
