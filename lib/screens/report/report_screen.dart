@@ -96,9 +96,14 @@ class _ReportScreenState extends State<ReportScreen> {
                   ),
                   const SizedBox(height: 16),
                   //tabla de productos
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: ReportTable(products: productosFiltrados),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: ReportTable(products: productosFiltrados),
+                      ),
+                    ),
                   ),
                 ],
               ),
