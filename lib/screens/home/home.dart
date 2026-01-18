@@ -114,23 +114,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                       onFavorite: () async {
-                        try {
-                          await firebase.addFavorite(producto);
-
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text("⭐ Guardado: ${producto.title}"),
+                        await firebase.addFavorite(producto);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              "${producto.title} añadido a favoritos",
                             ),
-                          );
-
-                          debugPrint("✅ Favorito guardado en Firestore");
-                        } catch (e) {
-                          debugPrint("❌ ERROR guardando favorito: $e");
-
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("❌ Error Firestore: $e")),
-                          );
-                        }
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
                       },
                     ),
                   );
