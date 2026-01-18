@@ -1,4 +1,5 @@
 import 'package:app_navegacion_estado/state/product_list_view_model.dart';
+import 'package:app_navegacion_estado/widgets/chart_widget.dart';
 import 'package:app_navegacion_estado/widgets/report_table.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -22,6 +23,17 @@ class _ReportScreenState extends State<ReportScreen> {
         : viewModel.products
               .where((p) => p.category == categorySeleccionada)
               .toList();
+
+    final Map<String, int> conteoPorCategoria = {};
+
+    for (final p in productosFiltrados) {
+      conteoPorCategoria[p.category] =
+          (conteoPorCategoria[p.category] ?? 0) + 1;
+    }
+
+    final datosGrafico = conteoPorCategoria.entries
+        .map((e) => MapEntry(e.key, e.value))
+        .toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -104,6 +116,22 @@ class _ReportScreenState extends State<ReportScreen> {
                         child: ReportTable(products: productosFiltrados),
                       ),
                     ),
+                  ),
+                  const SizedBox(height: 20),
+
+                  Text(
+                    "Productos por categoría",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  SizedBox(
+                    height: 250,
+                    child: SimpleBarChart(data: datosGrafico),
                   ),
                 ],
               ),
