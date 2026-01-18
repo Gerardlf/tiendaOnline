@@ -1,4 +1,3 @@
-import 'package:app_navegacion_estado/data/producto.dart';
 import 'package:app_navegacion_estado/screens/cart/cart.dart';
 import 'package:app_navegacion_estado/screens/detail/detail.dart';
 import 'package:app_navegacion_estado/screens/home/home.dart';

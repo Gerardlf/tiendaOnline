@@ -12,5 +12,5 @@ class FirebaseService {
   }
 
   //devolver el usuario actual
-  User? getCurrentUser() => _auth.currentUser;
+  User? get currentUser => _auth.currentUser;
 }

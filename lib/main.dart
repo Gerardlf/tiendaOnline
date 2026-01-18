@@ -1,5 +1,4 @@
 import 'package:app_navegacion_estado/app_router.dart';
-import 'package:app_navegacion_estado/firebase_options.dart' as options;
 import 'package:app_navegacion_estado/firebase_options.dart';
 import 'package:app_navegacion_estado/state/cartViewModel.dart';
 import 'package:app_navegacion_estado/state/product_list_view_model.dart';
@@ -23,7 +22,7 @@ class MainApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CartViewModel()),
-        //provader nuevo para la API
+        //provider nuevo para la API
         ChangeNotifierProvider(
           create: (_) => ProductListViewModel(ApiClient()),
         ),
