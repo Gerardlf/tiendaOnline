@@ -46,6 +46,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: [
             IconButton(
+              tooltip: "Favoritos",
+              icon: const Icon(Icons.favorite, color: Colors.amberAccent),
+              onPressed: () => context.goNamed("favorites"),
+            ),
+            IconButton(
               icon: Stack(
                 children: [
                   const Icon(Icons.shopping_cart, color: Colors.white),

@@ -47,10 +47,11 @@ class FavoritesScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               final favorite = favorites[index];
 
-              final title = favorite["title"] ?? "Sin título";
-              final category = favorite["category"] ?? "Sin categoría";
-              final price = favorite["price"] ?? 0;
-              final imageUrl = favorite["imageUrl"];
+              final title = (favorite["title"] ?? "Sin título").toString();
+              final category = (favorite["category"] ?? "Sin categoría")
+                  .toString();
+              final price = (favorite["price"] as num?)?.toDouble() ?? 0.0;
+              final imageUrl = (favorite["imageUrl"])?.toString();
 
               return ListTile(
                 leading: (imageUrl != null)
