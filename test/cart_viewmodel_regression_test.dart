@@ -1,8 +1,6 @@
 import 'package:app_navegacion_estado/data/product.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:app_navegacion_estado/state/cartViewModel.dart';
-import 'package:app_navegacion_estado/data/producto.dart';
+import 'package:app_navegacion_estado/state/cart_view_model.dart';
 
 void main() {
   test("El contador del carrito no debe bajar de 0 (regresión)", () {

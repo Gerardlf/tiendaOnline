@@ -1,5 +1,5 @@
 import 'package:app_navegacion_estado/services/firebase_service.dart';
-import 'package:app_navegacion_estado/state/cartViewModel.dart';
+import 'package:app_navegacion_estado/state/cart_view_model.dart';
 import 'package:app_navegacion_estado/state/product_list_view_model.dart';
 import 'package:app_navegacion_estado/widgets/product_card_api.dart';
 import 'package:app_navegacion_estado/widgets/responsive_scaffold.dart';
@@ -125,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       onFavorite: () async {
                         await firebase.addFavorite(producto);
+                        // ignore: use_build_context_synchronously
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(

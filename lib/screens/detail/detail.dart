@@ -1,5 +1,5 @@
 import 'package:app_navegacion_estado/data/product.dart';
-import 'package:app_navegacion_estado/state/cartViewModel.dart';
+import 'package:app_navegacion_estado/state/cart_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';

@@ -1,4 +1,4 @@
-import 'package:app_navegacion_estado/state/cartViewModel.dart';
+import 'package:app_navegacion_estado/state/cart_view_model.dart';
 import 'package:app_navegacion_estado/widgets/responsive_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -83,10 +83,12 @@ class CartScreen extends StatelessWidget {
                                     errorBuilder: (_, _, _) =>
                                         Icon(Icons.image_not_supported),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                  const SizedBox(width: 8),
+                                  Expanded(
                                     child: Text(
                                       producto.title,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 16,
@@ -172,7 +174,7 @@ class CartScreen extends StatelessWidget {
                         backgroundColor: Colors.blueAccent,
                         minimumSize: const Size.fromHeight(50),
                       ),
-                      onPressed: () => context.goNamed("payment"),
+                      onPressed: () {},
                     ),
                   ), //No hay navegacion a pagar!!!!!!
                 ],

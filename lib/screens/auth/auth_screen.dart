@@ -26,6 +26,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
       //despues de iniciar sesión, navega a la pantalla principal
       debugPrint("Usuario anónimo iniciado: ${user.uid}");
+      // ignore: use_build_context_synchronously
       context.goNamed("home");
     } catch (e) {
       setState(() {
