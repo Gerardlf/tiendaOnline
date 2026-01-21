@@ -101,6 +101,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
+                      key: const Key("btn_login_anon"),
                       onPressed: _isLoading ? null : _loginAnonymously,
                       child: _isLoading
                           ? const SizedBox(

@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: [
             IconButton(
+              key: const Key("btn_report"),
               tooltip: "Informe",
               onPressed: () => context.goNamed("report"),
               icon: const Icon(Icons.bar_chart, color: Colors.white),
@@ -99,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
             : (viewModel.products.isEmpty)
             ? const Center(child: Text("No hay productos disponibles"))
             : ListView.builder(
+                key: const Key("home_list"),
                 itemCount: viewModel.products.length,
                 itemBuilder: (context, i) {
                   final producto = viewModel.products[i];

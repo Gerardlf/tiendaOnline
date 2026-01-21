@@ -1,17 +1,24 @@
 # APP TIENDA ONLINE UD6 Y UD7
 
-# UD6 (BASE)
+Proyecto Flutter realizado en dos fases:
+- **UD6 (base):** navegación + estado + carrito (MVVM)
+- **UD7 (ampliación):** API REST + Firebase + informe (tabla + gráfico)
+
+
+
+# UD6 (BASE): ** Navegación +  estado + carrito (MVVM)
+
 # app_navegacion_estado
 
 ## Arquitectura
 
 Este proyecto sigue la estructura MVVM para separar las responsabilidades
 
--- La carpeta data contiene los archivos relacionados con los datos (model). Aqui tenemos los archivos correspondientes a la clase Producto, cart_repository que se encarga de modificar la lista inmutable del carrito que solo se puede modificar dentro de esta clase.
+- **data** La carpeta data contiene los archivos relacionados con los datos (model). Aqui tenemos los archivos correspondientes a la clase Producto, cart_repository que se encarga de modificar la lista inmutable del carrito que solo se puede modificar dentro de esta clase.
 
---La carperta state contiene el archivo carViewModel (viewModel) es la encargada de exponer el estado y las acciones a la ui y de conectarse con el repositorio del model y notificar cambios a las vistas.
+- **state** La carperta state contiene el archivo carViewModel (viewModel) es la encargada de exponer el estado y las acciones a la ui y de conectarse con el repositorio del model y notificar cambios a las vistas.
 
---La carpeta screen contiene los archivos de las vistas de la app, estas vistas solo "escuchan" al viewmodel con el Provider.
+- **screens** La carpeta screens contiene los archivos de las vistas de la app, estas vistas solo "escuchan" al viewmodel con el Provider.
 
 ## Rutas y navegación
 
@@ -39,16 +46,33 @@ Usamos el paquete ui_components donde tenemos nuestro archivo ProductCard que es
 
 Esta App se ampliará en la UD7
 
+
+
+
+
 ## 18/enero/2026
 
-## inicio unidad 7 (AMPLIACIÓN)
-Debido a que la unidad 6 no estaba calificada al empezar la unidad 7 y que no queria tocar nada de ese código debido a que estaba subido como un repositorio público, he decidico compiar toda la unidad 6 y comenzar desde alli en un repo nuevo.
+## Inicio unidad 7 (AMPLIACIÓN) ** API REST + Firebase + infrome (tabla + gráfico)
+
+Debido a que la unidad 6 no estaba calificada al empezar la unidad 7 y que no queria tocar nada de ese código debido a que estaba subido como un repositorio público, he decidico copiar toda la unidad 6 y comenzar desde alli en un repo nuevo.
+
+## Funcionalidades añadidas
+- Consumo de **API REST pública** (FakeStoreAPI)
+- **Firebase Auth** (login anónimo)
+- **Cloud Firestore** para favoritos del usuario
+- **Informe** con:
+  - Tabla (DataTable)
+  - Filtro por categoría
+  - Cálculo (total filtrado)
+  - Gráfico de barras con "fl_chart"
+
+
 
 ## Tienda Online (UD7) · API REST + Firebase (continuación de la unidad 6)
 
 - Consumo de una **API REST pública** (FakeStoreAPI)
 - **Firebase Auth** (Login anónimo)
-- **FireStore** para poder guardar los favoritos del usuario, mostrarlos y usarlos en los informes
+- **Firestore** para poder guardar los favoritos del usuario, mostrarlos y usarlos en los informes
 
 
 ## Arquitectura (MVVM)
@@ -75,7 +99,7 @@ Debido a que la unidad 6 no estaba calificada al empezar la unidad 7 y que no qu
   https://fakestoreapi.com/products
 
   -Usamos http
-  - Los datos don Json que se transforman a objetos Product mediante Product,fromJson
+  - Los datos son Json que se transforman a objetos Product mediante Product,fromJson
   - Gestionan estados en la UI:
     - Cargando
     - Errores
@@ -124,8 +148,8 @@ Se ha añadido una pantalla de informe ReportScreen que muestra un análisis sim
  ## Capturas UD7
 
  ![AUTH>800px](docs/capturas/PantallaAuth.png)
- ![API>800PX](docs/capturas/Productos%20desde%20API.png)
- ![INFORME>800PX](docs/capturas/Tabla%20y%20Grafico.png)
+ ![API>800PX](docs/capturas/Productos_API.png)
+ ![INFORME>800PX](docs/capturas/Tabla_Grafico.png)
  ![FAV>800PX](docs/capturas/Favoritos.png)
 
 
@@ -152,7 +176,7 @@ si quieres cambiar la api lo debes hacer en:
 
 ## Configuración Firebase (Auth + Firestore)
 
-Para que funcione login anónimo y favpritos, Firebase debe estar configurado.
+Para que funcione login anónimo y favoritos, Firebase debe estar configurado.
 
 Firebase genera el archivo:
 - lib/firebase_options.dart
@@ -182,8 +206,16 @@ En la raiz del proyecto (donde esta el pubspec.yaml) ejecutar:
  Al terminar, FlutterFire generará automaticamente:
 
  - lib/firebase_options.dart
- - andriod/app/google-services.json 
+ - android/app/google-services.json 
 
+
+ **Documentación adicional (docs/)**
+ 
+ · docs/manual_usuaio.md
+ · docs/instalacion_configuracion.md
+ · docs/tutorial_rapido.md
+ · docs/test_strategy_adv.md
+ · docs/test_results_adv.md
 
 
 

@@ -43,6 +43,7 @@ class _ReportScreenState extends State<ReportScreen> {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
+          key: const Key('btn_back_home'),
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => context.goNamed("home"),
         ),
@@ -71,6 +72,7 @@ class _ReportScreenState extends State<ReportScreen> {
                 children: [
                   //filtro de categoría
                   DropdownButton<String?>(
+                    key: const Key("report_category_dropdown"),
                     isExpanded: true,
                     value: categorySeleccionada,
                     hint: const Text("Todas las categorías"),
